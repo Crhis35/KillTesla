@@ -17,7 +17,6 @@ def Add_Dash(server):
     options = []
     for (file) in result:
         obj.add(file['year'])
-    for i in obj:
         
 
 
