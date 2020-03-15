@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% block body %}
+<section class="container">
+    <aside id="aside">
+        <form name="myform" action="" method="GET">
+            <h2>IP Webcam (IP):</h2>
+            <input type="text" name="inputbox" value="192.168.0.11">
+            <input type="button" name="button1" value="Cargar" onClick="readUrlAV(this.form)">
+            </label>
+        </form>
+        <form name="myform2" action="" method="GET">
+            <h2>Raspberry IP Address:</h2>
+            <input type="text" name="inputbox" Value="192.168.0.5">
+            <input type="button" name="button3" Value="Cargar" onClick="testarArduino(this.form)">
+        </form>
+    </aside>
+    <div class="video">
+        <object class="play" id="video" type="text/html" data="http://192.168.0.5:8080/video">
+                        </object>
+    </div>
+    <aside class="aside2">
+        <form name="myform" method="POST">
+
+            <button class='btn left' value='Girar-izq' name='1'><span class="icon-arrow-left"></span></button>
+            <button class='btn up' value='Accelerar-del' name='2'><span class="icon-arrow-up"></span ></button>
+            <button class='btn down' value='Accelerar-atr' name='3'><span class="icon-arrow-down"></span></button>
+            <button class='btn right' value='Girar-der' name='4'><span class="icon-arrow-right"></span></button>
+        </form>
+    </aside>
+</section>
+
+<script>
+    function readUrlAV(form) {
+        TextVar = form.inputbox.value;
+        VideoVar = "http://" + TextVar + ":8080/video";
+        AudioVar = "http://" + TextVar + ":8080/audio.opus";
+        document.getElementById("video").setAttribute('data', VideoVar);
+        document.getElementById("audio").setAttribute('data', AudioVar);
+    }
+
+    function testarArduino(form) {
+        TextVar = myform2.inputbox.value;
+        ArduinoVar = "http://" + TextVar + ":80";
+        $.get(ArduinoVar, {
+            "cm3": 7000
+        }); {
+            Connection: close
+        };
+    }
+
+    $(document).ready(() => {
+        const form = document.querySelector('.aside2 form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
+        const form = document.querySelector
+        $(".btn").click(() => {
+            // e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "/",
+                data: {
+                    id: $(this).val()
+                },
+                success: (res) => {
+                    alert("ok");
+                },
+                error: (res) => {
+                    alert("error");
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}y

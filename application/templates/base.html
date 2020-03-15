@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TeslaKiller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/dist/css/styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/dist/css/style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="icon"><img class='logo' src="{{ url_for('static', filename='../static/dist/img/logo.svg')}}" alt="logo"></span>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">DriveM</a></li>
+                <li><a href="#">SelfDrive</a></li>
+                <li><a href="/dashapp/">Graph</a></li>
+            </ul>
+        </nav>
+        <a href="#"><button>Admin</button></a>
+    </header>
+    {% block body %} {% endblock %}
+</body>
+
+</html>
